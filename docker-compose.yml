@@ -1,0 +1,23 @@
+version: '3.6'
+services:
+
+  doh01:
+    image: dns42ch/doh:latest
+    build: .
+    restart: always
+    ports:
+       - "9001:53"
+
+  doh02:
+    image: dns42ch/doh:latest
+    build: .
+    restart: always
+    ports:
+       - "9002:53"
+
+  doh03:
+    image: dns42ch/doh:latest
+    build: .
+    restart: always
+    ports:
+       - "9003:53"
