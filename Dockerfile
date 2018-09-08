@@ -6,6 +6,6 @@ RUN apt-get update \
 	&& apt-get -y install dnsutils \
 	&& pip3 install doh-proxy
 
-EXPOSE 9000
+EXPOSE 53
 
-ENTRYPOINT [ "doh-httpproxy", "--upstream-resolver=8.8.8.8", "--port", "9000", "--listen-address", "0.0.0.0" ]
+ENTRYPOINT [ "doh-httpproxy", "--upstream-resolver=8.8.8.8", "--port=53", "--listen-address=0.0.0.0", "--trusted" ]
