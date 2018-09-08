@@ -7,6 +7,12 @@ services:
     restart: always
     ports:
        - "9001:53"
+    entrypoint:
+       - "doh-httpproxy"
+       - "--upstream-resolver=8.8.8.8"
+       - "--port=53"
+       - "--listen-address=0.0.0.0"
+       - "--trusted"
 
   doh02:
     image: dns42ch/doh:latest
@@ -14,6 +20,12 @@ services:
     restart: always
     ports:
        - "9002:53"
+    entrypoint:
+       - "doh-httpproxy"
+       - "--upstream-resolver=8.8.4.4"
+       - "--port=53"
+       - "--listen-address=0.0.0.0"
+       - "--trusted"
 
   doh03:
     image: dns42ch/doh:latest
@@ -21,3 +33,10 @@ services:
     restart: always
     ports:
        - "9003:53"
+    entrypoint:
+       - "doh-httpproxy"
+       - "--upstream-resolver=1.1.1.1"
+       - "--port=53"
+       - "--listen-address=0.0.0.0"
+       - "--trusted"
+
