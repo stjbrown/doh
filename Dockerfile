@@ -3,6 +3,7 @@ LABEL maintainer="Markus Ritzmann <contact@dns42.ch>"
 
 RUN apt-get update \
 	&& apt-get -y upgrade \
+	&& apt-get -y install dnsutils \
 	&& pip3 install doh-proxy
 
 EXPOSE 9000
